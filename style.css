@@ -1,0 +1,57 @@
+nav{
+    display: block;
+}
+.video{
+    padding: 10px;
+    margin: 0px;
+}
+h1{
+    background-color: rgb(83, 67, 67);
+    color: brown;
+}
+.principio h1{
+    margin: 0px;
+}
+.principio h2{
+    margin: 0px;
+}
+.principio{
+    padding: 0px;
+    margin: 0px;
+    color: brown;
+    text-align: justify;
+    background-color: rgb(49, 43, 43);
+
+}
+.topnav{
+    overflow: hidden;
+    background-color:rgb(117, 177, 230);
+    
+}
+.topnav a{
+    float: left;
+    color: rgb(254, 250, 250);
+    text-align: center;
+    padding: 14px 10px;
+    text-decoration: none; 
+    font-size: 17px;
+}
+.topnav a:hover{
+    background-color: aliceblue;
+    color: black;
+}
+.allbrower{
+    margin: 0px;
+    padding: 5px;
+    background-color: antiquewhite;
+}
+.allbrower> h1{
+    padding: 5px;
+    margin: 10px;
+}
+.brow{
+    font-size: 90%;
+    background-color: azure;
+    text-align:justify;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
