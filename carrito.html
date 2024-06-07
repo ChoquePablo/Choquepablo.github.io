@@ -34,6 +34,7 @@
             width: 200px;
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Añadido para el posicionamiento del botón */
         }
         .cart-item img {
             max-width: 100%;
@@ -41,6 +42,8 @@
             border-bottom: 1px solid #ccc;
             padding-bottom: 10px;
             margin-bottom: 10px;
+            width: 200px;
+            height: 200px;
         }
         .cart-item h2 {
             font-size: 18px;
@@ -50,22 +53,42 @@
         .cart-item p {
             font-size: 16px;
             color: #666;
+            padding-bottom: 20px;
+        }
+        .remove-button {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ff4d4d;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            cursor: pointer;
         }
     </style>
     <script>
         function loadCart() {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const cartGrid = document.getElementById('cart-grid');
-            cart.forEach(product => {
+            cart.forEach((product, index) => {
                 let cartItem = document.createElement('div');
                 cartItem.className = 'cart-item';
                 cartItem.innerHTML = `
                     <img src="${product.image}" alt="${product.name}">
                     <h2>${product.name}</h2>
                     <p>€${product.price.toFixed(2)}</p>
+                    <button class="remove-button" onclick="removeItem(${index})">Eliminar</button>
                 `;
                 cartGrid.appendChild(cartItem);
             });
+        }
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            location.reload(); // Recargar la página para reflejar los cambios
         }
         window.onload = loadCart;
     </script>
