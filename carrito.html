@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .cart-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .cart-item {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .cart-item img {
+            max-width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .cart-item h2 {
+            font-size: 18px;
+            color: #333;
+            margin: 10px 0;
+        }
+        .cart-item p {
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartGrid = document.getElementById('cart-grid');
+            cart.forEach(product => {
+                let cartItem = document.createElement('div');
+                cartItem.className = 'cart-item';
+                cartItem.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <h2>${product.name}</h2>
+                    <p>€${product.price.toFixed(2)}</p>
+                `;
+                cartGrid.appendChild(cartItem);
+            });
+        }
+        window.onload = loadCart;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Carrito de Compras</h1>
+        <div id="cart-grid" class="cart-grid">
+            <!-- Los productos del carrito se añadirán aquí -->
+        </div>
+    </div>
+</body>
+</html>
