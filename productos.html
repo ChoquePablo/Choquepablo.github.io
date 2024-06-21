@@ -6,20 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Productos en Venta</title>
     <style>        
+
         body {
+            
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #fae9f4;
             margin: 0;
             padding: 20px;
         }
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
+
+            background-color: #f5f1f5;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
         h1 {
             text-align: center;
-            color: #333;
+            color: #e4b6d5;
+
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+        h2{
+            text-align: center;
+            color: #666;
         }
         .product-grid {
             display: flex;
@@ -33,10 +46,19 @@
             border-radius: 4px;
             padding: 15px;
             width: 200px;
-            
             text-align: center;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+            transition: transform 0.3s, box-shadow 0.3s;
         }
+
+
+        .product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+
         .product img {
             max-width: 100%;
             height: auto;
@@ -54,6 +76,8 @@
         .product p {
             font-size: 16px;
             color: #666;
+
+            margin: 10px 0;
         }
         .product button {
             background-color: #5cb85c;
@@ -62,6 +86,9 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+
+            font-size: 16px;
+            transition: background-color 0.3s;
         }
         .product button:hover {
             background-color: #4cae4c;
@@ -75,7 +102,16 @@
             text-align: center;
             text-decoration: none;
             border-radius: 4px;
+
+            font-size: 18px;
+            transition: background-color 0.3s;
         }
+
+        .cart-button:hover {
+            background-color: #0056b3;
+        }
+
+
     </style>
     <script>
         function addToCart(product) {
@@ -87,8 +123,13 @@
     </script>
 </head>
 <body>
+    <header>
+        <p>
+            <h1>TECNOMARKET</h1>
+            <h2>Productos en Venta</h2>
+        </p>
+    </header>
     <div class="container">
-        <h1>Productos en Venta</h1>
         <div class="product-grid">
             <div class="product">
                 <img src="imagenes/A23.jpeg" alt="Celular tecnoMarket A23">
@@ -160,8 +201,9 @@
                 <img src="imagenes/auricular i15.jpeg" alt="Auricular tecnoMarket i15" width= "100px" height= "100px" padding= "10px;">
                 <h2>Auricular tecnoMarket i15</h2>
                 <p>$80.000</p>
-                <button onclick='addToCart({name: "Auricular tecnoMarket i15", price: 80.000, image: "auricular i15.jpeg"})'>Añadir al carrito</button>
+                <button onclick='addToCart({name: "Auricular tecnoMarket i15", price: 80.000, image: "imagenes/auricular i15.jpeg"})'>Añadir al carrito</button>
             </div>
+            
             <!-- Añadir más productos según sea necesario -->
         </div>
         <a href="carrito.html" class="cart-button">Ver carrito</a>
