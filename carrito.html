@@ -22,6 +22,9 @@
         h1 {
             text-align: center;
             color: #e4b6d5;
+
+            margin-bottom: 40px;
+            font-size: 2.5em;
         }
         h2{
             text-align: center;
@@ -58,6 +61,19 @@
             margin-top: 30px;
             color: #333;
         }
+        .checkout-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
     </style>
     <script>
         function loadCart() {
@@ -84,6 +100,9 @@
 
             // Mostrar el total en la página
             document.getElementById('total').innerText = `Total: $${total.toFixed(2)}`;
+
+            // Guardar el total en localStorage para el formulario de Google Drive
+            localStorage.setItem('totalCompra', total.toFixed(2));
         }
 
         function removeItem(index) {
@@ -93,6 +112,19 @@
             location.reload(); // Recargar la página para reflejar los cambios
         }
 
+        function finalizarCompra() {
+            let totalCompra = localStorage.getItem('totalCompra');
+            if (totalCompra) {
+                let googleFormId = '1XMqK_zOg6ddFkchSOITk4ck9_4u984WMjTX8JG85xpE'; // ID de tu formulario de Google Drive
+                let totalFieldName = 'entry.Total'; // Nombre del campo para el total en tu formulario
+
+                let googleFormUrl = `https://docs.google.com/forms/d/${googleFormId}/viewform?${totalFieldName}=${encodeURIComponent(totalCompra)}`;
+        
+                window.open(googleFormUrl, '_blank');
+            } else {
+                alert('No hay productos en el carrito.');
+            }
+}
         window.onload = loadCart;
     </script>
 </head>
@@ -118,7 +150,7 @@
         <div id="total" class="total">
             <!-- El total se mostrará aquí -->
         </div>
+        <button class="checkout-button" onclick="finalizarCompra()">Finalizar Compra</button>
     </div>
 </body>
 </html>
-
