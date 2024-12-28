@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Me perdonas?</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #f7c2da, #f5f4f4); /* Color de fondo más elegante */
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .gif {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 30px;
+            display: block;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .button {
+            font-size: 16px;
+            padding: 12px 25px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            font-weight: 500;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+            width: 120px;
+        }
+
+        .yes {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .yes:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .no {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .no:hover {
+            background-color: #c82333;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button {
+            margin-top: 40px;
+            background-color: #007bff;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out;
+            font-weight: 500;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilo para cuando el botón "obvio" crece */
+        .yes.scaled {
+            transform: scale(1.2);
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://media.giphy.com/media/L95W4wv8nnb9K/giphy.gif" alt="Cute GIF" class="gif">
+        <h1>¿Me perdonas?</h1>
+        <div class="buttons">
+            <button class="button yes" id="yesButton">Obvio</button>
+            <button class="button no" id="noButton">Mmmm</button>
+        </div>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+
+        let scaleFactor = 1;  // Variable para controlar el aumento del tamaño
+
+        noButton.addEventListener('click', () => {
+            scaleFactor += 0.1;  // Incrementamos el tamaño en cada clic
+            yesButton.style.transform = `scale(${scaleFactor})`;  // Aplicamos el cambio de tamaño
+            yesButton.classList.add('scaled');  // Aplica la clase 'scaled' para el efecto visual
+        });
+
+        yesButton.addEventListener('click', () => {
+            window.location.href = "paginaDespues.html"; // Redirigir a la nueva página
+        });
+    </script>
+</body>
+</html>
