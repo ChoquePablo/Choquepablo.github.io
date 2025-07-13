@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>index</title>
   <style>    
@@ -329,6 +329,41 @@ h1 {
 
 /* Responsivo */
 @media (max-width: 600px) {
+
+    .portada {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 10px;
+    gap: 20px;
+    height: auto;
+  }
+
+  .texto-portada h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .texto-portada .fecha {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .fotos-portada {
+    position: static;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+  }
+
+  .foto-circulo,
+  .foto-circulo.grande {
+    position: static;
+    width: 80px;
+    height: 80px;
+  }
     .contador {
         font-size: 1.2em;
     }
