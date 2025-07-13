@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>index</title>
+  <style>    
+
+
+#pantalla-password {  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(54, 53, 53);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+
+}
+
+.contenedor-password {
+  background-color: white;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+#input-password {
+  padding: 10px;
+  width: 200px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+#mensaje-error {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+
+/* Estilo general */
+body {
+  font-family: 'Segoe UI', cursive;
+  background-color: #ffe6ea;
+  margin: 0;
+  padding: 0;
+  color: #8b0033;
+  text-align: center;
+}
+
+/* PORTADA */
+.portada {
+  background: #ffeef2;
+  border: 3px solid #cc1f46;
+  padding: 30px;
+  border-radius: 20px;
+  margin: 30px 10px;
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portada-contenido {
+  display: flex;
+  align-items: center;
+  gap: 50px; /* espacio entre texto y fotos */
+}
+
+.texto-portada {
+  text-align: center;
+}
+
+.texto-portada h1 {
+  font-size: 2.8rem;
+  color: #e6005c;
+  font-weight: bold;
+}
+
+.texto-portada .fecha {
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #333;
+  margin-top: -10px;
+}
+
+/* Fotos en círculo */
+.fotos-portada {
+  position: relative;
+  width: 220px;
+  height: 220px;
+}
+
+.foto-circulo {
+  position: absolute;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border: 2px solid #f88aa0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.foto-circulo.grande {
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+}
+
+/* CONTADOR */
+.contador {
+  background: #ffeef2;
+  border: 3px solid #cc1f46;
+  padding: 30px 10px;
+  border-radius: 20px;
+  margin: 30px 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contador h2 {
+  color: #d9005f;
+  font-size: 1.8rem;
+}
+
+.tiempo-romantico {
+  font-size: 1.5rem;
+  font-style: italic;
+  margin: 20px 0;
+  color: #660022;
+}
+
+.contador button {
+  padding: 10px 20px;
+  background-color: #d9005f;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.contador h3 {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 1.8rem;
+  color: #ff1a66;
+  margin-top: 20px;
+}
+    
+
+    nav {
+      background-color: #a60055;
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 80px 20px;
+    }
+
+    #about, #blog, #gallery, #contacts {
+      background-color: #f9f9f9;
+      border-top: 1px solid #ddd;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+/*seccion tiempo*/
+h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 25px;
+      color: #333;
+    }
+    .photo-container {
+      margin: 20px auto;
+    }
+    .photo-container img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #ff69b4;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .counter {
+      font-size: 1.5em;
+      margin-top: 10px;
+      margin-bottom: 40px;
+      color: #a60055;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .btn {
+      background-color: #ff69b4;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .btn:hover {
+      background-color: #e0559c;
+      transform: scale(1.05);
+    }
+    .hearts {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      animation: floatHearts 4s ease-in-out infinite;
+    }
+    @keyframes floatHearts {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-15px); }
+    }
+
+
+    /*seccion galeria*/
+
+    .seccion-galeria {
+    /*background-color: #ffebcd;*/
+    background-color: #f8f0ff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 1500px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.fotos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.fotos img {
+    width: 250px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    box-shadow: 1px 1px 15px 10px #e98bb7;
+}
+
+.fotos img:hover {
+    transform: scale(1.1);
+}
+
+
+/*seccion carta*/
+
+/* Sección de la carta */
+.seccion-carta {
+    background-color: #f8f0ff;
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+h1 {
+    font-size: 24px;
+    color: #d1548f;
+    font-family: "Rubik Spray Paint", cursive;
+    margin-bottom: 20px;
+}
+
+.contenido-carta p {
+    font-size: 1.2em;
+    color: #333;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/
+    box-shadow: 1px 1px 15px 10px #e98bb7;
+    max-width: 500px;
+    margin: auto;
+    line-height: 1.5;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+    .contador {
+        font-size: 1.2em;
+    }
+
+    #linea-superior, #linea-inferior {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .unidad-tiempo {
+        min-width: 60px;
+    }
+
+    .fotos img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .contenido-carta {
+        font-size: 1em;
+    }
+}
+
+/*mensaje*/
+#mensaje-amor {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  font-weight: bold;
+  color: hotpink;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px pink;
+  text-align: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* animación para aparecer */
+#mensaje-amor.mostrar {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1) rotate(2deg);
+}
+
+
+
+/*corazones*/
+.heart {
+  position: fixed;
+  top: -20px;
+  font-size: 20px;
+  color: #ff4da6;
+  animation: fall 5s linear infinite;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+  </style>
+  <script>
+function actualizarContador() {
+  const fechaInicio = new Date("2025-07-12T12:00:00");
+  const ahora = new Date();
+  const diff = ahora - fechaInicio;
+
+  const meses = Math.floor(diff / (1000 * 60 * 60 * 24 * 30.44));
+  const dias = Math.floor((diff / (1000 * 60 * 60 * 24)) % 30.44);
+
+  const totalSegundos = Math.floor(diff / 1000);
+  const segundos = totalSegundos % 60;
+  const totalMinutos = Math.floor(totalSegundos / 60);
+  const minutos = totalMinutos % 60;
+  const totalHoras = Math.floor(totalMinutos / 60);
+  const horas = totalHoras % 24;
+
+  document.getElementById("contador-tiempo").textContent =
+    `${meses} meses ${dias} días ${horas} horas ${minutos} minutos ${segundos} segundos`;
+}
+
+setInterval(actualizarContador, 1000);
+actualizarContador();
+
+
+</script>
+
+</head>
+<body>
+
+<script>
+  function verificarPassword() {
+    const input = document.getElementById("input-password").value;
+    const correcto = "120224";
+    const error = document.getElementById("mensaje-error");
+
+    if (input === correcto) {
+      document.getElementById("pantalla-password").style.display = "none";
+      document.getElementById("contenido").style.display = "block";
+
+      // 🌸 Iniciar los pétalos después de desbloquear
+      iniciarPetalos();
+    } else {
+      error.textContent = "Contraseña incorrecta";
+    }
+  }
+
+  // Oculta el contenido al cargar
+  window.onload = () => {
+    document.getElementById("contenido").style.display = "none";
+  };
+</script>
+
+
+
+<!-- PASSWORD -->
+<div id="pantalla-password">
+  <div class="contenedor-password">
+    <h2>Ingresá la contraseña</h2>
+    <input type="password" id="input-password" placeholder="Contraseña..." />
+    <button onclick="verificarPassword()">Entrar</button>
+    <p id="mensaje-error"></p>
+  </div>
+</div>
+
+<div id="contenido" style="display: none;">
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function crearCorazon() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerText = "💕";
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = Math.random() * 20 + 10 + "px";
+        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+        }
+
+        setInterval(crearCorazon, 300);
+    });
+    </script>
+
+    <script>
+    function mostrarMensaje() {
+        const mensaje = document.getElementById("mensaje-amor");
+        mensaje.textContent = "TE AMO MI BB HERMOSAA 💖";
+        mensaje.classList.add("mostrar");
+
+        // Oculta después de 3 segundos
+        setTimeout(() => {
+        mensaje.classList.remove("mostrar");
+        }, 3000);
+    }
+    </script>
+
+    
+        <!-- PORTADA -->
+    <section id="Portada" class="portada">
+    <div class="portada-contenido">
+        <!-- Texto: nombres y fecha -->
+        <div class="texto-portada">
+        <h1>Gisel y Pablo</h1>
+        <p class="fecha">14/01/2024</p>
+        </div>
+
+        <!-- Fotos: agrupadas a la derecha -->
+        <div class="fotos-portada">
+        <img src="fotos/gibhy.jpg" alt="Foto grande" class="foto-circulo grande" style="top: 30px; left: 60%;">
+        <img src="fotos/amorcito.jpg" alt="Foto pequeña 1" class="foto-circulo" style="top: 0px; left: 30%;">
+        <img src="fotos/yo.jpg" alt="Foto pequeña 2" class="foto-circulo" style="bottom: 20px; left: 110%;">
+        </div>
+    </div>
+    </section>
+
+    <nav>
+        <a href="#Tiempo">Tiempo</a>
+        <a href="#Musica">Musica</a>
+        <a href="#Galeria">Galeria</a>
+        <a href="#Carta">Carta</a>
+    </nav>
+
+    <!-- CONTADOR -->
+    <section id="Tiempo" class="contador">
+    <h2>Tiempo juntos</h2>
+    <p class="tiempo-romantico" id="contador-tiempo"></p>
+    <p>Vamos por más meses 💖</p>
+    <button onclick="mostrarMensaje()">Dale click</button>
+    <div id="mensaje-amor"></div>
+    </section>
+
+    
+
+
+
+    <section id="Musica">
+    <div class="container">
+        <h2>Nuestra Música</h2>
+        <p>Canciones que me recuerdan a vos 💖</p>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 40px;">
+        
+        <!-- Canción 1 -->
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/6ohTBTmcNHe9UzvxAgA9wJ?utm_source=generator" width="300" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        
+        <!-- Canción 2 -->
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6aommJFM8i3iT4inKuDSXh?utm_source=generator" width="300" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        
+        <!-- Canción 3 -->
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/1caKQ2Nqtr1eoczaB83cUz?utm_source=generator" width="300" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        <!-- Canción 4 -->
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2n0NCtkvHx1oPqgiAvexiB?utm_source=generator" width="300" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        <!-- Canción 5 -->
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0SUukeNYkHMk8bxwgGQKJa?utm_source=generator" width="300" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        <!-- Canción 6 -->
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0JY2QXSvlpA8DZwgaAYWlY?utm_source=generator" width="300" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        <!-- Canción 7 -->
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7sRXhReWmJF5pqyg3uUTES?utm_source=generator" width="300" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        
+        <!-- Canción 8 -->
+        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/0fHTVPRRKmWaRuIwrsNTMp?utm_source=generator" width="300" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        <!-- Canción 9 -->
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/2DAULesb1U4Qz4FSTZpEUJ?utm_source=generator" width="300" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+        </div>
+    </div>
+    </section>
+
+
+
+    <section id="Galeria">
+        <div class="container">
+        <h2>Galeria</h2>
+        <!-- Sección de la galería -->
+        <div id="seccion-galeria" class="seccion-galeria">
+            <h1>Nuestras Fotos</h1>
+            <div class="fotos">
+                <img src="fotos/merendar1.jpg" alt="Foto 1">
+                <img src="fotos/merendar2.jpg" alt="Foto 2">
+                <img src="fotos/merendar3.jpg" alt="Foto 3">
+                <img src="fotos/gym1.jpg" alt="Foto 4">
+                <img src="fotos/gym2.jpg" alt="Foto 5">
+                <img src="fotos/gym3.jpg" alt="Foto 4">
+                <img src="fotos/rio1.jpg" alt="Foto 6">
+                <img src="fotos/rio2.jpg" alt="Foto 7">
+                <img src="fotos/rio3.jpg" alt="Foto 8">  
+                <img src="fotos/caminata1.jpg" alt="Foto 9">
+                <img src="fotos/caminata3.jpg" alt="Foto 10">
+                <img src="fotos/caminata2.jpg" alt="Foto 11">
+                <img src="fotos/caminata4.jpg" alt="Foto 12">
+                <img src="fotos/caminata5.jpg" alt="Foto 13">
+                <img src="fotos/caminata6.jpg" alt="Foto 14">
+                <img src="fotos/cancha1.jpg" alt="Foto 15">
+                <img src="fotos/tekis1.jpg" alt="Foto 16">
+                <img src="fotos/termasReyes1.jpg" alt="Foto 17">
+                <img src="fotos/termasReyes2.jpg" alt="Foto 18">
+                <img src="fotos/termasReyes3.jpg" alt="Foto 19">
+                <img src="fotos/termasReyes4.jpg" alt="Foto 20">
+                <img src="fotos/termasReyes5.jpg" alt="Foto 21">
+                <img src="fotos/termasReyes6.jpg" alt="Foto 22">
+                <img src="fotos/mates1.jpg" alt="Foto 23">
+                <img src="fotos/diqueCienega1.jpg" alt="Foto 24">
+                <img src="fotos/diqueCienega2.jpg" alt="Foto 25">
+                <img src="fotos/diqueCienega3.jpg" alt="Foto 26">
+                <img src="fotos/diqueCienega4.jpg" alt="Foto 27">
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="Carta">
+        <div class="container">
+        <h2>Carta</h2>
+        <!-- Sección de la carta -->
+        <div id="seccion-carta" class="seccion-carta">
+            <h1>Una Carta Para Ti</h1>
+            <div class="contenido-carta">
+                <p>
+                    Querida Gi:<br><br>                    
+
+Si llegaste hasta acá, es porque por fin llegó ese día tan esperado por los dos... y tu respuesta a mi pregunta fue “sí”. Eso significa que ahora somos oficialmente novios.
+Quiero que sepas que este es el día más feliz de mi vida, y nunca lo voy a olvidar.
+
+Hoy dimos un paso muy importante en nuestra relación, y quiero que sea el primero de muchos más.
+Sos el amor de mi vida, la mujer con la que siempre soñé. Espero poder estar siempre a tu lado y formar una familia juntos algún día.
+
+Gracias por ser como sos.
+Te amo, amorcito.
+
+<br>
+                    Con cariño,
+Tu novio,
+Pablo
+                </p>
+            </div>
+        </div>
+        </div>
+    </section>
+
+</div>
+
+
+
+
+</body>
+<footer>
+    <div class="hearts">💕 💞 💖 💕 💞</div>
+</footer>
+</html>
